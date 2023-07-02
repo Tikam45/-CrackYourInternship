@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int rows = matrix.size();
+        int cols= matrix[0].size();
+        vector<int> zeroRows;
+        vector<int> zeroCols;
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<cols; j++){
+                if(matrix[i][j] == 0){
+                    zeroRows.push_back(i);
+                    zeroCols.push_back(j);
+                }
+            }
+        }
+        for(int i: zeroRows){
+            int col = 0;
+            while(col < cols){
+                matrix[i][col] = 0;
+                col++;
+            }
+        }
+        for(int i: zeroCols){
+            int row = 0;
+            while(row < rows){
+                matrix[row][i] = 0;
+                row++;
+            }
+        }
+    }
+    
+};
