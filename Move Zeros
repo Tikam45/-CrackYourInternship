@@ -1,0 +1,25 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        for(int i=0; i<nums.size();i++){
+        bool swapped = true;
+        if(nums[i] != 0){
+            continue;
+        }
+        else{
+            swapped = false;
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[j] != 0){
+                    swap(nums[i], nums[j]);
+                    swapped = true;
+                    break;
+                }
+            }
+        }
+        // to stop loop when rest of array is zero to decrease time complexity
+        if(swapped == false){
+            break;
+        }
+        }
+    }
+};
